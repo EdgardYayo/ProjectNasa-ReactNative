@@ -1,8 +1,14 @@
 import { Image, Text, View, StyleSheet, Button } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function TodayImage({ nasaData }) {
+
+    const { title, date, url, explanation } = nasaData;
+    const { navigate } = useNavigation();
+    const handleViewPress = () => {
+        navigate('Detail', { title, url, date, explanation });
+    };
     
 
     return (
@@ -14,6 +20,7 @@ export default function TodayImage({ nasaData }) {
                 <Button 
                   title="View" 
                   color="#0B3D91"
+                  onPress={handleViewPress}
                 />
             </View>
         </View>

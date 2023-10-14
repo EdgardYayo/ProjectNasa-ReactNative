@@ -12,6 +12,8 @@ export default function LastFiveDaysImages({ last5DaysNasaData }) {
                       key={`post-image-${item.title}-${index}`}
                       title={item.title}
                       date={item.date}
+                      url={item.url}
+                      explanation={item.explanation}
                     />
                 ))}
             </ScrollView>

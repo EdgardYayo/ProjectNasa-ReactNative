@@ -1,8 +1,13 @@
 import { Button, Text, View, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
+export default function PostImages({ title, date, url, explanation }) {
 
-export default function PostImages({ title, date }) {
+    const { navigate } = useNavigation();
 
+    const handleViewPress = () => {
+        navigate('Detail', { title, date, url, explanation });
+    };
 
     return (
         <View style={styles.container}>
@@ -12,6 +17,7 @@ export default function PostImages({ title, date }) {
                 <Button 
                   title="View"
                   color="#0B3D91"
+                  onPress={handleViewPress}
                 />
             </View>
         </View>
